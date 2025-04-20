@@ -1,69 +1,82 @@
-# 🏋️‍♂️ Gym Management System (Console-Based Java Application)
+Gym CLI Application User Guide
 
-This project is a **console-based Gym Management System** built using **Java**, **PostgreSQL**, and **Maven**. It simulates the operations of a gym where different users—Admins, Trainers, and Members—can register, log in, manage memberships, workout classes, and more, all with **role-based access control (RBAC)**.
+The Gym App is a system for managing gym operations, including user accounts, memberships, and workout classes. It is designed for different user roles: Admins, Trainers, and Members.
 
----
+Prerequisites
 
-## 📌 Functional Requirements
+Java Development Kit (JDK) installed
+IDE: IntelliJ IDEA or Visual Studio Code (VS Code)
+Java extensions for VS Code (if using)
+Running the Application
 
-### ✅ User Registration & Authentication
+In VS Code
+Open VS Code and navigate to the GymApp directory.
+Locate the GymApp.java file in the src/GymApp directory.
+Right-click the file and select "Run Java" or click the Run button in the top bar.
+The app will start, and you'll interact with it via the command line.
+In IntelliJ IDEA
+Open the project in IntelliJ IDEA.
+Locate and open GymApp.java in the src/GymApp directory.
+Click the Run button or press Shift + F10.
+The app will start, and you can interact with it via the command line.
+Seeding the Database
 
-- Users can register with:
-  - `username`, `password`, `email`, `phone number`, `address`, and `role` (Admin, Trainer, or Member).
-- Registered users can **log in** and view a **role-specific menu**.
-- Passwords are securely hashed using **BCrypt** before being stored in the database.
-- Classes involved:
-  - `User`, `UserDAO`, `UserService`
-  - `Admin`, `Trainer`, `Member` (extend from `User`)
+Seeding adds initial test data to the database.
 
----
+In VS Code
+Right-click GymApp.java and select "Run Java".
+Click the gear ⚙️ icon near the Run button and select "Configure".
+In the launch.json file, add "args": ["--seed"] under the args section.
+Save and re-run.
+In IntelliJ IDEA
+Open GymApp.java.
+Go to Run > Edit Configurations.
+In the "Program Arguments" field, type --seed.
+Click Apply, then Run.
+Main Menu Options
 
-### 💳 Membership Management
+Add a new user: Register a new user.
+Login as a user: Log in with an existing user account.
+Exit: Close the app.
+Registering a New User
+Select Add a new user.
+Provide the following details:
+Email
+Username
+Password
+Phone Number
+Address
+Role (Admin, Trainer, Member)
+Logging In
+Select Login as a user.
+Enter your email and password.
+If valid, you'll be taken to your user-specific menu.
+Admin Menu
 
-- **Members** and **Trainers** can purchase gym memberships.
-- **Admins** can view all memberships and track **total revenue**.
-- Classes involved:
-  - `Membership`, `MembershipDAO`, `MembershipService`
+Once logged in as an Admin, you’ll see the following options:
 
----
+View all Users: List all users.
+View Users by Role: Filter users by role (Admin, Trainer, Member).
+Delete User: Remove a user (can't delete yourself).
+View Memberships: List all memberships.
+View Total Revenue: Check total revenue for a specific year.
+Logout: Return to the main menu.
+Member Menu
 
-### 🧘 Workout Class Management
+Once logged in as a Member, you’ll see:
 
-- **Trainers** can:
-  - Create, update, and delete workout classes.
-  - View a list of all their assigned classes.
-- **Members** can:
-  - Browse available workout classes.
-- Classes involved:
-  - `WorkoutClass`, `WorkoutClassDAO`, `WorkoutClassService`
+Browse Workout Classes: View all available classes.
+View Total Membership Expenses: See total costs of your membership.
+Purchase New Membership: Choose a membership (basic, standard, premium).
+Logout: Return to the main menu.
+Trainer Menu
 
----
+Once logged in as a Trainer, you’ll see:
 
-## 🧑‍💼 Role-Based Functionality
-
-### 👑 Admin
-- View all users and their contact information.
-- Delete users from the system.
-- View all memberships and total annual revenue.
-
-### 🧑‍🏫 Trainer
-- Manage workout classes (create, update, delete).
-- View their own classes.
-- Purchase gym membership.
-
-### 🧍 Member
-- Browse available workout classes.
-- Purchase gym memberships.
-- View total membership expenses.
-
----
-
-## 🗄️ Database Integration
-
-- Backend powered by **PostgreSQL**.
-- Implements full **CRUD operations** for:
-  - Users
-  - Memberships
-  - Workout Classes
-- Suggested schema:
+Add a Workout Class: Create a new class.
+Delete a Workout Class: Remove an existing class.
+Update a Workout Class: Modify a class.
+View My Workout Classes: See all classes you’re teaching.
+Buy Membership: Purchase a membership.
+Logout: Return to the main menu.
 
